@@ -8,6 +8,11 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import { error } from "console";
+import { register } from "./controllers/auth.js"; 
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
+
 
 /* Configuration */
 
@@ -24,5 +29,25 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
-/* FILE STORAGEs */
+/* FILE STORAGE */
+
+/* END OF FILE STORAGE */
+
+/* ROUTES */
+
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
+
+
+/* MONGODB SETUP */
+const PORT = process.env.PORT || 6001;
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    app.listen(PORT, () => console.log(`Server start on PORT: ${PORT}`));
+}).catch((error) => console.log(`${error} server not connect`));
+
+
+
 
