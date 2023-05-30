@@ -4,33 +4,35 @@ const UserSchema = new mongoose.Schema(
     {
         firstName: {
             type: String,
-            require: true,
+            required: true,
             min: 2,
             max: 50,
         },
 
         lastName: {
             type: String,
-            require: true,
+            required: true,
             min: 2,
             max: 50,
         },
 
         email: {
             type: String,
-            require: true,
+            required: true,
+            unique: true,
             min: 2,
             max: 50,
         },
 
         password: {
             type: String,
-            require: true,
+            required: true,
             min: 6,
         },
 
-    }
+    },
+    { timestamps: true }
 );
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema);
 export default User;

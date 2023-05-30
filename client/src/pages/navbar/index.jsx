@@ -40,7 +40,7 @@ const Navbar = () => {
     const alt = theme.palette.background.alt;
 
 
-    const fullName = /*`${user.firstName} ${user.lastName}`*/ "zaglushka";
+    const fullName = user === null ? "Default User" : `${user.firstName} ${user.lastName}`;
 
     return <FlexBetween padding="1rem 6%" backgroundColor={alt}>
         <FlexBetween gap="1.75rem">
@@ -79,7 +79,7 @@ const Navbar = () => {
                  )}      
             </IconButton>
             <Help sx={{ fontSize: "25px"}} />
-            <FormControl variant="standart" value={fullName}>
+            <FormControl variant="standard" value={fullName}>
                 <Select
                     value={fullName}
                     sx={{

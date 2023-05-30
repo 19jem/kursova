@@ -8,10 +8,13 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import { error } from "console";
 import { register } from "./controllers/auth.js"; 
+import { verifyToken } from "./middleware/auth.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
+import User from "./models/User.js";
+import {users} from "./data/index.js";
+
 
 
 /* Configuration */
@@ -33,6 +36,9 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 
 /* END OF FILE STORAGE */
 
+/* ROUTES IDK */
+app.post("/auth/register", register);
+
 /* ROUTES */
 
 app.use("/auth", authRoutes);
@@ -46,6 +52,8 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server start on PORT: ${PORT}`));
+
+    //User.insertMany(users);
 }).catch((error) => console.log(`${error} server not connect`));
 
 

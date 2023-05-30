@@ -10,7 +10,7 @@ export const register = async (req, res) => {
             firstName,
             lastName,
             email,
-            password
+            password,
         } = req.body;
 
         const salt = await bcrypt.genSalt();
@@ -33,9 +33,9 @@ export const register = async (req, res) => {
 /* LOGIN */
 export const login = async (req, res) => {
     try {
-        const { email, password} = req.body;
+        const { email, password } = req.body;
         const user = await User.findOne({email: email });
-        if (!user) return res.status(400).json({ msg: "Користувача не знайдено" });
+        if (!user) return res.status(404).json({ msg: "Користувача не знайдено" });
         
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch) return res.status(400).json({ msg: "Недійсні облікові дані"});

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export const verifyToken = async (req, res, next) => {
     try {
-        let token = req.header("Authoeization");
+        let token = req.header("Авторизовано");
 
         if (!token) {
             return res.status(403).send("Відмовлено в доступі");
