@@ -12,8 +12,9 @@ import { register } from "./controllers/auth.js";
 import { verifyToken } from "./middleware/auth.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
+import courseRoutes from "./routes/course.js";
 import User from "./models/User.js";
-import {users} from "./data/index.js";
+import {users, courses } from "./data/index.js";
 
 
 
@@ -40,7 +41,7 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 app.post("/auth/register", register);
 
 /* ROUTES */
-
+app.use("/course", courseRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 

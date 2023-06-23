@@ -95,3 +95,29 @@ export const users = [
     __v: 0,
   },
 ];
+
+export const courses = {
+  courseId: 'course1',
+  name: 'HTML Basics',
+  description: 'Learn the basics of HTML',
+  createdAt: new Date(),
+  questions: [
+    {
+      questionText: 'What does HTML stand for?',
+      options: [
+        { optionText: 'Hyper Text Markup Language', isCorrect: true },
+        { optionText: 'Home Tool Markup Language', isCorrect: false },
+        { optionText: 'Hyperlinks and Text Markup Language', isCorrect: false }
+      ]
+    },
+    {
+      questionText: 'What is the correct HTML element for the largest heading?',
+      options: [
+        { optionText: '<h1>', isCorrect: true },
+        { optionText: '<head>', isCorrect: false },
+        { optionText: '<h6>', isCorrect: false }
+      ]
+    }
+    // Додайте інші питання тут...
+  ]
+};

@@ -98,7 +98,9 @@ const Navbar = () => {
                     input={<InputBase />}
                     >
                         <MenuItem value={fullName}>
-                            <Typography>{fullName}</Typography>
+                            <Typography
+                                onClick={() => navigate("/profile/")}
+                            >{fullName}</Typography>
                         </MenuItem>
                         <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
                 </Select>
