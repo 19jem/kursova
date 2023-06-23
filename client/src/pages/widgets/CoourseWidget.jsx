@@ -1,9 +1,8 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import { useSelector , useDispatch} from "react-redux";
+import { useSelector } from "react-redux";
 import {useState, useEffect } from 'react';
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
-import { setCourses } from "state";
 import { useNavigate } from "react-router-dom";
 
 
