@@ -6,6 +6,5 @@ const router = express.Router();
 
 /* READ */
 router.get("/:id", verifyToken, getUser);
-//router.get("/:id/course", verifyToken, getUser);
 
 export default router;

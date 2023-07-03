@@ -11,7 +11,6 @@ import {
     useMediaQuery 
 } from "@mui/material";
 import {
-    Search,
     DarkMode,
     LightMode,
     Help,
@@ -58,14 +57,6 @@ const Navbar = () => {
             >
                 HTMLCourse
             </Typography>
-            {isNonMobileScreens && (
-                <FlexBetween backgroundColor={neutralLight} borderRadius="9px" gap="3rem" padding="0.1rem 1.5rem">
-                    <InputBase placeholder="Search..."/>
-                    <IconButton>
-                        <Search/>
-                    </IconButton>
-                </FlexBetween>
-            )}
         </FlexBetween>
 
         {/*DESKTOP NAV */}
@@ -78,7 +69,6 @@ const Navbar = () => {
                     <LightMode sx={{ color: dark, fontSize: "25px"}} />
                  )}      
             </IconButton>
-            <Help sx={{ fontSize: "25px"}} />
             <FormControl variant="standard" value={fullName}>
                 <Select
                     value={fullName}
@@ -102,7 +92,8 @@ const Navbar = () => {
                                 onClick={() => navigate("/profile/")}
                             >{fullName}</Typography>
                         </MenuItem>
-                        <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+                        <MenuItem onClick={() => window.location.href = "https://github.com/19jem/kursova"}>Про проект</MenuItem>
+                        <MenuItem onClick={() => dispatch(setLogout())}>Вихід</MenuItem>
                 </Select>
             </FormControl>
         </FlexBetween>
@@ -166,7 +157,8 @@ const Navbar = () => {
                             <MenuItem value={fullName}>
                                 <Typography>{fullName}</Typography>
                             </MenuItem>
-                            <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+                            <MenuItem onClick={() => window.location.href = "https://github.com/19jem/kursova"}>Про проект</MenuItem>
+                            <MenuItem onClick={() => dispatch(setLogout())}>Вихід</MenuItem>
                     </Select>
             </FormControl>
         </FlexBetween>

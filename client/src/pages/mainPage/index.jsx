@@ -19,11 +19,14 @@ const MainPage = () => {
             padding="2rem 6%"
             display={isNonMobileScreens ? "flex" : "block"}
             gap="0.5rem"
-            justifyContent="space-between"
+            justifyContent="center"
         >
-            <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-                <UserWidget userId={_id} />
+            <Box flexBasis={isNonMobileScreens ? "30%" : undefined}
+                justifyContent="center">
                 <CourseWidget/>
+            </Box>
+            <Box flexBasis={isNonMobileScreens ? "19%" : undefined}>
+                <UserWidget userId={_id} />
             </Box>
         </Box>
     </Box>

@@ -35,5 +35,19 @@ export const createCourse = async (req, res) => {
     }
 
 
-}
+};
+/**Delete course */
+export const deleteCourse = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedCourse = await Course.findByIdAndDelete(id);
+        if (deletedCourse) {
+            res.status(200).json({ message: "Курс успішно видалено!" });
+        } else {
+            res.status(404).json({ message: "Курс не знайдено." });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 

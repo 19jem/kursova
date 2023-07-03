@@ -27,15 +27,15 @@ const loginSchema = yup.object().shape({
 });
 
 const initialValuesRegister = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
 }
 
 const initialValuesLogin = {
     email: "",
-    password: "",
+    password: ""
 }
 
 const Form = () => {
@@ -50,11 +50,10 @@ const Form = () => {
     const register = async (values, onSubmitProps) => {
 
         const formData = new FormData();
-        for(let value in values) {
-            formData.append(value, values[value]);
+        for (let key in values) {
+          formData.append(key, values[key]);
         }
-
-        const savedUserResponse = await fetch (
+        const savedUserResponse = await fetch(
             "http://localhost:3001/auth/register",
             {
                 method: "POST",
@@ -110,7 +109,6 @@ const Form = () => {
                 handleBlur,
                 handleChange,
                 handleSubmit,
-                setFieldValue,
                 resetForm,
 
             }) => (

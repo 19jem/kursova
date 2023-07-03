@@ -23,7 +23,7 @@ const ProfilePage = () => {
         getUser();
       }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    if (!user) return <div>Cock</div>;
+    if (!user) return <div>Nothing</div>;
 
     return <Box>
         <Navbar />

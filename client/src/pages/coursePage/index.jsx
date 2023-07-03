@@ -1,12 +1,10 @@
 import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "pages/navbar";
 import CourseWidget from "pages/widgets/CoourseWidget";
-import { useSelector } from "react-redux";
 
 
 const CoursePage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
-    const {_id} = useSelector((state) => state.course);
 
     return (
     <Box>
@@ -19,7 +17,7 @@ const CoursePage = () => {
             justifyContent="space-between"
         >
             <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-                <CourseWidget courseId={_id} />
+                <CourseWidget />
             </Box>
                 
         </Box>
